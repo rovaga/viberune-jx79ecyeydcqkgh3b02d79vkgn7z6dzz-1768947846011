@@ -87,8 +87,28 @@ export class RanchGame implements Game {
   private createDesertGround(): void {
     // Large desert ground
     const groundGeometry = new THREE.PlaneGeometry(200, 200);
+    
+    // Load teacher.png texture for the floor
+    const textureLoader = new THREE.TextureLoader();
+    const teacherTexture = textureLoader.load(
+      '/assets/teacher.png',
+      (texture) => {
+        // Configure texture settings
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        // Scale texture to repeat across the floor (adjust repeat values as needed)
+        texture.repeat.set(4, 4); // Repeat 4 times in each direction
+        texture.needsUpdate = true;
+      },
+      undefined,
+      (error) => {
+        console.warn('[RanchGame] Failed to load teacher.png texture:', error);
+      }
+    );
+    
     const groundMaterial = new THREE.MeshStandardMaterial({
-      color: 0xd2b48c, // Tan desert color
+      map: teacherTexture, // Apply teacher.png texture
+      color: 0xffffff, // Use white color to show texture properly
       roughness: 0.9,
     });
     const ground = new THREE.Mesh(groundGeometry, groundMaterial);
