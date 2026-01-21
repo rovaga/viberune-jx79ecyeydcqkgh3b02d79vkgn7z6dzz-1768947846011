@@ -52,7 +52,7 @@ export class CowboyPlayer {
     // Create body (torso)
     const bodyGeometry = new THREE.CylinderGeometry(0.3, 0.35, 0.8, 8);
     const bodyMaterial = new THREE.MeshStandardMaterial({
-      color: 0x8b4513, // Brown shirt
+      color: 0xff69b4, // Pink shirt
       roughness: 0.8,
     });
     this.body = new THREE.Mesh(bodyGeometry, bodyMaterial);
@@ -129,7 +129,7 @@ export class CowboyPlayer {
     this.arms = [];
     const armGeometry = new THREE.CylinderGeometry(0.1, 0.1, 0.5, 8);
     const armMaterial = new THREE.MeshStandardMaterial({
-      color: 0x8b4513,
+      color: 0xff69b4, // Pink arms
       roughness: 0.8,
     });
 
