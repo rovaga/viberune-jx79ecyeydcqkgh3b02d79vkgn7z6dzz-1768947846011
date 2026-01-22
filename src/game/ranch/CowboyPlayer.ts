@@ -28,7 +28,7 @@ export class CowboyPlayer {
   private readonly speed = 0.12;
   private readonly jumpForce = 0.4;
   private readonly gravity = -0.015;
-  private readonly groundY = 0.3; // Player height when on ground (feet at y=0)
+  private readonly groundY = 0.6; // Player height when on ground (feet at y=0) - 2x bigger
 
   // Camera settings
   private cameraDistance = 8;
@@ -148,6 +148,9 @@ export class CowboyPlayer {
     rightArm.castShadow = true;
     this.mesh.add(rightArm);
     this.arms.push(rightArm);
+
+    // Scale the entire character 2x bigger
+    this.mesh.scale.set(2, 2, 2);
 
     console.log('[CowboyPlayer] Created');
   }
@@ -315,7 +318,7 @@ export class CowboyPlayer {
   }
 
   getRadius(): number {
-    return 0.4;
+    return 0.8; // 2x bigger collision radius
   }
 
   getLives(): number {
