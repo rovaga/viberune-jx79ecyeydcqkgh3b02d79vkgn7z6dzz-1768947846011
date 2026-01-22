@@ -79,9 +79,9 @@ export class RanchGame implements Game {
     directional.shadow.mapSize.height = 2048;
     this.engine.scene.add(directional);
 
-    // Desert sky color
-    this.engine.scene.background = new THREE.Color(0xe0f2ff);
-    this.engine.scene.fog = new THREE.Fog(0xe0f2ff, 30, 100);
+    // Dark blue sky color
+    this.engine.scene.background = new THREE.Color(0x1e3a8a);
+    this.engine.scene.fog = new THREE.Fog(0x1e3a8a, 30, 100);
   }
 
   private createDesertGround(): void {
